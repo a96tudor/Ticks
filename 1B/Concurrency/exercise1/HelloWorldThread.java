@@ -2,13 +2,14 @@ package exercise1;
 
 /**
  * HelloWorldThread.java
- * TODO : complete with functionality
- * <p>
+ *
+ *    A thread that prints "Hello world!" when it is run
+ *
  * Created by © Tudor Avram on 29/03/17.
  * Homerton College, University of Cambridge
  * tma33@cam.ac.uk
  */
-public class HelloWorldThread extends Thread{
+public class HelloWorldThread implements Runnable{
 
    private int threadNo;
 
@@ -21,15 +22,19 @@ public class HelloWorldThread extends Thread{
       this.threadNo = threadNo;
    }
 
+   /**
+    *    Method called to run the thread
+    */
    @Override
    public void run() {
       System.out.print("Hello world!");
-      super.run();
    }
 
+   /**
+    *    Method called to run the thread. It also prints the thread number
+    */
    public void runAndPrintThreadNo() {
       System.out.print(this.threadNo + ". Hello world!");
-      super.run();
    }
 
 }

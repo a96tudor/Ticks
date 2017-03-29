@@ -17,7 +17,7 @@ public class PartA {
 
       HelloWorldThread myThread = new HelloWorldThread(0);
       myThread.run();
-      
+
    }
 
 }
