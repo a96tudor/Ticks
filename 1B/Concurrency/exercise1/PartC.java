@@ -14,18 +14,17 @@ public class PartC {
 
    public static void main(String args[]) {
 
-      HelloWorldThread thread1 = new HelloWorldThread(1);
-      HelloWorldThread thread2 = new HelloWorldThread(2);
-      HelloWorldThread thread3 = new HelloWorldThread(3);
-      HelloWorldThread thread4 = new HelloWorldThread(4);
-      HelloWorldThread thread5 = new HelloWorldThread(5);
+      Thread thread1 = new Thread(new HelloWorldThread(1, true));
+      Thread thread2 = new Thread(new HelloWorldThread(2, true));
+      Thread thread3 = new Thread(new HelloWorldThread(3, true));
+      Thread thread4 = new Thread(new HelloWorldThread(4, true));
+      Thread thread5 = new Thread(new HelloWorldThread(5, true));
 
-      thread1.runAndPrintThreadNo();
-      thread2.runAndPrintThreadNo();
-      thread3.runAndPrintThreadNo();
-      thread4.runAndPrintThreadNo();
-      thread5.runAndPrintThreadNo();
-
+      thread1.run();
+      thread2.run();
+      thread3.run();
+      thread4.run();
+      thread5.run();
    }
    
 }

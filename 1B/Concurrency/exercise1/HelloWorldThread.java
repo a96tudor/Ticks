@@ -11,15 +11,18 @@ package exercise1;
  */
 public class HelloWorldThread implements Runnable{
 
-   private int threadNo;
+   private int mThreadNo;
+   private boolean mPrintThreadNo;
 
    /**
     *       CONSTRUCTOR
-    * @param threadNo      The threadnumber
+    * @param threadNo      The thread number
+    * @param printThreadNo    if we want the thread number to be printed or not
     */
-   public HelloWorldThread(int threadNo) {
+   public HelloWorldThread(int threadNo, boolean printThreadNo) {
       super();
-      this.threadNo = threadNo;
+      this.mThreadNo = threadNo;
+      this.mPrintThreadNo = printThreadNo;
    }
 
    /**
@@ -27,14 +30,18 @@ public class HelloWorldThread implements Runnable{
     */
    @Override
    public void run() {
-      System.out.print("Hello world!");
+      if (this.mPrintThreadNo) {
+         runAndPrintThreadNo();
+      } else {
+         System.out.print("Hello world!");
+      }
    }
 
    /**
     *    Method called to run the thread. It also prints the thread number
     */
-   public void runAndPrintThreadNo() {
-      System.out.print(this.threadNo + ". Hello world!");
+   private void runAndPrintThreadNo() {
+      System.out.print(this.mThreadNo + ". Hello world!");
    }
 
 }

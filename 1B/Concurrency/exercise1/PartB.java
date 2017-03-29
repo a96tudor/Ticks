@@ -15,11 +15,11 @@ public class PartB {
 
    public static void main(String args[]) {
 
-      HelloWorldThread thread1 = new HelloWorldThread(1);
-      HelloWorldThread thread2 = new HelloWorldThread(2);
-      HelloWorldThread thread3 = new HelloWorldThread(3);
-      HelloWorldThread thread4 = new HelloWorldThread(4);
-      HelloWorldThread thread5 = new HelloWorldThread(5);
+      Thread thread1 = new Thread(new HelloWorldThread(1, false));
+      Thread thread2 = new Thread(new HelloWorldThread(2, false));
+      Thread thread3 = new Thread(new HelloWorldThread(3, false));
+      Thread thread4 = new Thread(new HelloWorldThread(4, false));
+      Thread thread5 = new Thread(new HelloWorldThread(5, false));
 
       thread1.run();
       thread2.run();
