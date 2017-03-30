@@ -1,5 +1,7 @@
 package exercise2;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * PartB.java
  *
@@ -12,9 +14,15 @@ package exercise2;
  */
 public class PartB {
 
-   private static AtomicInteger number = new AtomicInteger(0);
+   static AtomicInteger number = new AtomicInteger(0);
 
-   public static void main(String args[]) {
+   static void incrementNumber() {
+      number.incrementAndGet();
+   }
+
+   public static void main(String args[]) throws InterruptedException {
+
+
 
       // setting up thread1
 
@@ -22,7 +30,7 @@ public class PartB {
          @Override
          public void run() {
             for (int i=0; i < 1000000; i++) {
-               number.increment();
+               incrementNumber();
             }
          }
       };
@@ -32,17 +40,19 @@ public class PartB {
          @Override
          public void run() {
             for (int i=0; i < 1000000; i++) {
-               number.increment();
+               incrementNumber();
             }
          }
       };
 
-      // running the two threads
-      thread1.run();
-      thread2.run();
+      thread1.start();
+      thread2.start();
+
+      thread1.join();
+      thread2.join();
 
       // printing the result
-      number.print();
+      System.out.println(number.get());
    }
 
 }

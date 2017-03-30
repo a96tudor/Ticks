@@ -17,7 +17,7 @@ public class PartA {
 
    private static int number = 0;
 
-   public static void main(String args[]) {
+   public static void main(String args[]) throws InterruptedException {
 
       // setting up thread 1
       Thread thread1 = new Thread() {
@@ -38,10 +38,13 @@ public class PartA {
             }
          }
       };
-      
+
       // running the threads
-      thread1.run();
-      thread2.run();
+      thread1.start();
+      thread2.start();
+
+      thread1.join();
+      thread2.join();
 
       // printing the result
       System.out.print(number);
