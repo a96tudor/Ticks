@@ -16,7 +16,7 @@ public class PartA {
    public static void main(String args[]) {
 
       Thread myThread = new Thread(new HelloWorldThread(0, false));
-      myThread.run();
+      myThread.start();
 
    }
 

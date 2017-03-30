@@ -21,11 +21,11 @@ public class PartB {
       Thread thread4 = new Thread(new HelloWorldThread(4, false));
       Thread thread5 = new Thread(new HelloWorldThread(5, false));
 
-      thread1.run();
-      thread2.run();
-      thread3.run();
-      thread4.run();
-      thread5.run();
+      thread1.start();
+      thread2.start();
+      thread3.start();
+      thread4.start();
+      thread5.start();
 
    }
 
