@@ -1,3 +1,15 @@
+/*
+    EXERCISE : 
+
+    Complete the following query template to produce a query that returns rows name, total where the name column is the name of a person, and the total column indicates the number of movies of the genre Drama for which that person is a writer.
+
+       SELECT name, count(*) AS total
+          YOUR-CODE-GOES-HERE
+        GROUP BY name
+        ORDER BY total desc, name
+        LIMIT 10;
+*/
+
 SELECT p.name, count(*) AS total
       FROM people AS p 
       INNER JOIN credits AS c ON p.id = c.person_id 
